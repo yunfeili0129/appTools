@@ -9,7 +9,7 @@
 #import <AVFoundation/AVFoundation.h>
 typedef void(^callBlock)(BOOL isOk);
 @implementation AppTools
-//日期转换为字符串
+//获取系统相关信息
 +(NSArray *)systemInfo
 {
 //    NSLog(@"name: %@", [[UIDevice currentDevice] name]);
@@ -257,7 +257,7 @@ typedef void(^callBlock)(BOOL isOk);
     return result;
 }
 //判断url是否可用
--(void) validateUrl: (NSURL *) candidate callBlock:(callBlock)block{
++(void) validateUrl: (NSURL *) candidate callBlock:(callBlock)block{
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:candidate];
     [request setHTTPMethod:@"HEAD"];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
@@ -272,23 +272,6 @@ typedef void(^callBlock)(BOOL isOk);
         }
     }];
     [task resume];
-}
-+(NSArray *)randomArray
-{
-    //随机数从这里边产生
-    NSMutableArray *startArray=[[NSMutableArray alloc] initWithObjects:@0,@1,@2,@3,@4,@5,@6,@7,nil];
-    //随机数产生结果
-    NSMutableArray *resultArray=[[NSMutableArray alloc] initWithCapacity:0];
-    //随机数个数
-    NSInteger m=8;
-    for (int i=0; i<m; i++) {
-        int t=arc4random()%startArray.count;
-        resultArray[i]=startArray[t];
-        startArray[t]=[startArray lastObject]; //为更好的乱序，故交换下位置
-        [startArray removeLastObject];
-    }
-    return resultArray;
-    
 }
 //随机产生32位的uuid
 + (NSString *)uuidString
