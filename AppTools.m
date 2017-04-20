@@ -1,7 +1,5 @@
 //
 //  AppTools.m
-//  BossOnline
-//
 //  Created by liyunfei on 16/7/22.
 //  Copyright © 2016年 liyunfei. All rights reserved.
 //
