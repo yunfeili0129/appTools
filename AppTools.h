@@ -35,10 +35,4 @@
 +(void)setAudioSession;
 //扬声器模式
 +(void)setAudioWaiFangSession
-    {
-        AVAudioSession *audioSession=[AVAudioSession sharedInstance];
-        //设置为播放
-        [audioSession setCategory:AVAudioSessionCategoryPlayback error:nil];
-        [audioSession setActive:YES error:nil];
-    }
 @end
